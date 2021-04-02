@@ -1,14 +1,10 @@
-//
-//  main.cpp
-//  lab12
-//
-//  Created by Илья Грицацуев on 26.03.2021.
-//
-
+#include "IntModulo.hpp"
 #include <iostream>
+#include <stdio.h>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main() {
+    IntModulo a ;
+    //IntModulo b (20, 10);
+   // getchar();
     return 0;
 }
