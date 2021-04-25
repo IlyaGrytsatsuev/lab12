@@ -3,25 +3,24 @@
 #ifndef IntModulo_hpp
 #define IntModulo_hpp
 #include <iostream>
-#include <stdio.h>
 class IntModulo
 {
 private:
-    int a,b,modp = 21;
+    int num1,modp = 21;
     
 public:
     IntModulo();
-    IntModulo(int f,int s);
+    IntModulo(int f,int mod = 21);
     void Enter();
     void Print();
-    void SetVaribles(int f,int s,int mod);
+    void SetVaribles(int f,int mod);
     int Get_a();
     int Get_b();
     int Get_modp();
-    int Plus();
-    int Minus();
-    int Umn();
-    int Del();
+    IntModulo Plus( IntModulo& a);
+    IntModulo Minus( IntModulo& a);
+    IntModulo Umn( IntModulo& a);
+    IntModulo Del( IntModulo& a);
     ~ IntModulo(){ };
 };
 

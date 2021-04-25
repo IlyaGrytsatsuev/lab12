@@ -1,57 +1,42 @@
 
 #include "IntModulo.hpp"
 #include <iostream>
-#include <stdio.h>
-#include <iostream>
 
 IntModulo::IntModulo()
 {
-    IntModulo::Enter();
+    num1 = 0;
     modp = 21;
-    IntModulo::Print();
+    //IntModulo::Print();
 }
 
-IntModulo::IntModulo(int f, int s)
+IntModulo::IntModulo(int f, int mod)
 {
-    IntModulo::SetVaribles(f,s,modp);
-    IntModulo::Print();
+    IntModulo::SetVaribles(f,modp);
+    //IntModulo::Print();
 }
 
 void IntModulo::Enter()
 {
     std::cout<<"Enter a:\n";
-    std::cin>>a;
-    std::cout<<"Enter b:\n";
-    std::cin>>b;
+    std::cin>>num1;
 }
 void IntModulo::Print()
 {
-    std::cout <<"sum = "<<Plus()<<std::endl;
-    std::cout<<"raznost = "<<Minus()<<std::endl;
-    std::cout<<"proizvedenie = "<<Umn()<<std::endl;
-    std::cout<<"delenie = "<<Del()<<std::endl;
     std::cout<<"a = "<<Get_a()<<std::endl;
-    std::cout<<"b = "<<Get_b()<<std::endl;
     std::cout<<"mod p = "<<Get_modp()<<std::endl;
 }
 
-void IntModulo::SetVaribles(int f,int s,int mod)
+void IntModulo::SetVaribles(int f,int mod)
 {
-    a=f;
-    b=s;
+    num1=f;
     modp=mod;
 }
 
 int IntModulo::Get_a()
 {
-    return a;
+    return num1;
 }
 
-int IntModulo::Get_b()
-{
-    return b;
-
-}
 
 int IntModulo::Get_modp()
 {
@@ -59,31 +44,31 @@ int IntModulo::Get_modp()
 
 }
 
-int IntModulo::Plus()
+IntModulo IntModulo::Plus(IntModulo& a)
 {
-    int result = 0;
-    result = (((a%modp)+(b%modp))%modp);
-    return result;
+    IntModulo rez;
+    rez.num1 = ((num1+a.num1)%a.modp);
+    return rez;
 }
 
-int IntModulo::Minus()
+IntModulo IntModulo::Minus(IntModulo& a)
 {
-    int result(0);
-    result = (((a%modp)-(b%modp))%modp);
-    return result;
+    IntModulo rez;
+    rez.num1 = ((num1-a.num1)%a.modp);
+    return rez;
 }
 
-int IntModulo::Umn()
+IntModulo IntModulo::Umn(IntModulo& a)
 {
-    int result(0);
-    result = (((a%modp)*(b%modp))%modp);
-    return result;
+    IntModulo rez;
+    rez.num1 = ((num1*a.num1)%a.modp);
+    return rez;
 }
 
-int IntModulo::Del()
+IntModulo IntModulo::Del(IntModulo& a)
 {
-    int result(0);
-    result = (((a%modp)/(b%modp))%modp);
-    return result;
+    IntModulo rez;
+    rez.num1 = ((num1/a.num1)%a.modp);
+    return rez;
 }
         
