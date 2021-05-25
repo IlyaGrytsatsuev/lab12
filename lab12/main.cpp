@@ -5,8 +5,9 @@
 int main() {
     
     IntModulo a ;
-    IntModulo b (20,21);
+    IntModulo b ;
     a.Enter();
+    b.Enter();
     IntModulo c;
     c = a.Plus(b);
     std::cout<<"Addition\n";

@@ -2,21 +2,26 @@
 #include "IntModulo.hpp"
 #include <iostream>
 
+IntModulo::IntModulo(const IntModulo& a)
+{
+    num1 = a.num1;
+    modp = a.modp;
+}
+
 IntModulo::IntModulo()
 {
     num1 = 0;
     modp = 21;
-    //IntModulo::Print();
 }
 
 IntModulo::IntModulo(int f, int mod)
 {
     num1 = f;
     modp = mod;
-    //IntModulo::SetVaribles(f,modp);
-    //IntModulo::Print();
+   
 }
-IntModulo& IntModulo::operator=( const IntModulo& a){
+IntModulo& IntModulo::operator=( const IntModulo& a)
+{
     
     num1 = a.num1;
     modp = a.modp;
@@ -41,74 +46,87 @@ void IntModulo::SetVaribles(int f,int mod)
     modp=mod;
 }
 
-int IntModulo::Get_a()
+int IntModulo::Get_a() const
 {
     return num1;
 }
 
 
-int IntModulo::Get_modp()
+int IntModulo::Get_modp() const
 {
     return modp;
 
 }
 
-IntModulo IntModulo::Plus( IntModulo& a)
+IntModulo IntModulo::Plus( const IntModulo& a) const
 {
-    if(modp!=a.modp)
-    {
-    std::cout<<"Enter the mod  you want to use for addition\n";
-    std::cin>>modp;
-    }
     IntModulo rez;
+    if(a.modp > modp){
+        rez.num1 = ((num1+a.num1)%a.modp);
+    }
+    else
+    {
+        rez.num1 = ((num1+a.num1)%modp);
+        
+    }
     rez.num1 = ((num1+a.num1)%modp);
-    if(rez.num1<0){
+    if(rez.num1<0)
+    {
         rez.num1+=modp;
     }
     return rez;
 }
 
-IntModulo IntModulo::Minus( IntModulo& a)
+IntModulo IntModulo::Minus(const IntModulo& a) const
 {
-    if(modp!=a.modp)
-    {
-    std::cout<<"Enter the mod  you want to use for subtraction\n";
-    std::cin>>modp;
-    }
     IntModulo rez;
-    rez.num1 = ((num1-a.num1)%modp);
-    if(rez.num1<0){
+    if(a.modp > modp){
+    rez.num1 = ((num1-a.num1)%a.modp);
+    }
+    else
+    {
+        rez.num1 = ((num1-a.num1)%modp);
+    }
+    if(rez.num1<0)
+    {
         rez.num1+=modp;
     }
     return rez;
 }
 
-IntModulo IntModulo::Umn( IntModulo& a)
+IntModulo IntModulo::Umn(const IntModulo& a) const
 {
-   if(modp!=a.modp)
-    {
-    std::cout<<"Enter the mod  you want to use for multiplication\n";
-    std::cin>>modp;
-    }
     IntModulo rez;
-    rez.num1 = ((num1*a.num1)%modp);
-    if(rez.num1<0){
-        rez.num1+=modp;
+    if(a.modp > modp){
+        rez.num1 = ((num1*a.num1)%a.modp);
     }
-    return rez;
-}
-
-IntModulo IntModulo::Del( IntModulo& a)
-{
-    if(modp!=a.modp)
+    else
     {
-    std::cout<<"Enter the mod  you want to use for division\n";
-    std::cin>>modp;
+        rez.num1 = ((num1*a.num1)%modp);
+        
     }
     
+    if(rez.num1<0)
+    {
+        rez.num1+=modp;
+    }
+    return rez;
+}
+
+IntModulo IntModulo::Del( const IntModulo& a) const
+{
     IntModulo rez;
+    if(a.modp > modp){
+        rez.num1 = ((num1/a.num1)%a.modp);
+    }
+    else
+    {
+        rez.num1 = ((num1/a.num1)%modp);
+        
+    }
     rez.num1 = ((num1/a.num1)%modp);
-    if(rez.num1<0){
+    if(rez.num1<0)
+    {
         rez.num1+=modp;
     }
     return rez;
