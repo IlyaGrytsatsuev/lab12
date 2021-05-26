@@ -5,22 +5,9 @@
 int main() {
     
     IntModulo a ;
-    IntModulo b ;
     a.Enter();
-    b.Enter();
-    IntModulo c;
-    c = a.Plus(b);
-    std::cout<<"Addition\n";
-    c.Print();
-    c = a.Minus(b);
-    std::cout<<"Subtraction\n";
-    c.Print();
-    c = a.Umn(b);
-    std::cout<<"Multiplication\n";
-    c.Print();
-    c = a.Del(b);
-    std::cout<<"Division\n";
-    c.Print();
-    // getchar();
+    IntModulo b ;
+    b = b.extended_euclid(a);
+    b.Inverted_elem (b);
     return 0;
 }

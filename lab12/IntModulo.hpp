@@ -7,7 +7,7 @@
 class IntModulo
 {
 private:
-    int num1,modp ;
+    int num1, modp, x, y, nod;
     
 public:
     IntModulo(const IntModulo& a);
@@ -15,15 +15,16 @@ public:
     IntModulo(int f,int mod);
     IntModulo& operator=(const IntModulo& a);
     void Enter();
-    void Print();
+    void Print() const;
     void SetVaribles(int f,int mod);
+    int Get_nod() const;
     int Get_a() const;
     int Get_b() const;
     int Get_modp() const;
-    IntModulo Plus(const IntModulo& a) const;
-    IntModulo Minus(const IntModulo& a) const;
-    IntModulo Umn(const IntModulo& a) const;
-    IntModulo Del(const IntModulo& a) const;
+    int Get_x() const;
+    int Get_y() const;
+    IntModulo extended_euclid(IntModulo& a);
+    void Inverted_elem (IntModulo& a);
     ~ IntModulo(){ };
 };
 
